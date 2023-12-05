@@ -4,5 +4,26 @@
 
 <img src="images/logo.png" width="300" height="300">
 
+## Installation
+
+```shell
+npm install cbr-api
+```
+
+## Usage
+
+### Creating an instance
+
+```typescript
+import { CbrApi } from 'cbr-api';
+
+const cbrApi = new CbrApi();
+```
+
+### Instance methods
+
+* `.getDailySpecificCurrencyRate(currency)`
+* `.getDailyCurrencyRates()`
+
 ## Source Data
 > https://www.cbr.ru/development/sxml/

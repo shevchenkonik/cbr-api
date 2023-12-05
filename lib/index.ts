@@ -1,14 +1,24 @@
 import axios from 'axios'
 import { XMLParser } from 'fast-xml-parser'
 
-import { DAILY_CURRENCY_URL } from './constants'
+import { DAILY_CURRENCY_URL, BASE_URL } from './constants'
 import { Currency, CurrencyCharCode, Daily } from './types'
 import { formatDate, formatToFloat } from './utils'
 
 export * from './types'
 
+interface CbrAPIConfig {
+  baseURL?: string
+}
+
 export default class CbrAPI {
-  constructor() {}
+  readonly config: CbrAPIConfig = {}
+
+  constructor() {
+    this.config = {
+      baseURL: BASE_URL
+    }
+  }
 
   /**
    * Get daily currency rates of all registered currencies
@@ -18,7 +28,7 @@ export default class CbrAPI {
 
     try {
       const response = await axios.get(
-        `${DAILY_CURRENCY_URL}?date_req=${formatDate(today)}`,
+        `${this.config.baseURL}?date_req=${formatDate(today)}`,
       )
 
       const parser = new XMLParser({
