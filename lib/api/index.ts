@@ -1,21 +1,39 @@
-import axios from "axios"
+import axios from 'axios'
 import { XMLParser } from 'fast-xml-parser'
 
-import {Currency, Daily, DailyCurrency} from "../types";
+import { Daily, Currency, CurrencyCharCode } from '../types'
 import { formatDate } from '../utils'
+import { DAILY_CURRENCY_URL } from '../constants'
 
-export const getDailyCurrencyRate = async (currency: string, date: Date): Promise<DailyCurrency | undefined> => {
-    const today = formatDate(date)
+export const getDailyCurrencyRate = async (): Promise<
+  Currency[] | undefined
+> => {
+  const today = new Date()
 
-    try {
-        const data = await axios.get(`http://www.cbr.ru/scripts/XML_daily.asp?date_req=${today}&VAL_NM_RQ=${currency}`)
-        const parser = new XMLParser()
-        const parsedData: Daily = parser.parse(data.data)
-        const currenciesList = parsedData.ValCurs.Valute
-        const result = currenciesList.filter(i => i.NumCode === 978)
+  try {
+    const data = await axios.get(
+      `${DAILY_CURRENCY_URL}?date_req=${formatDate(today)}`,
+    )
+    const parser = new XMLParser({
+      ignoreAttributes: false,
+      attributeNamePrefix: '',
+    })
 
-        return result[0]
-    } catch (e) {
-        console.error(e)
-    }
+    const parsedData: Daily = parser.parse(data.data)
+    return parsedData.ValCurs.Valute
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export const getDailySpecificCurrencyRate = async (
+  currency: CurrencyCharCode,
+): Promise<Currency | undefined> => {
+  try {
+    const data = await getDailyCurrencyRate()
+
+    return data?.filter(i => i.CharCode === currency)[0]
+  } catch (e) {
+    console.error(e)
+  }
 }

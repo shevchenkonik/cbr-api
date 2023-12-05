@@ -1,12 +1,9 @@
-import { getDailyCurrencyRate } from './api'
+import { getDailySpecificCurrencyRate } from './api'
+import { CurrencyCharCode } from './types'
 
-
-const result = async () => {
-    try {
-        const data = await getDailyCurrencyRate('R01239', new Date())
-        const val = parseFloat(data?.Value ?? '0')
-        console.log(10000 / val)
-    } catch (e) {}
-}
-
-result()
+;(async () => {
+  try {
+    const data = await getDailySpecificCurrencyRate(CurrencyCharCode.EUR)
+    console.log(data)
+  } catch (e) {}
+})()
