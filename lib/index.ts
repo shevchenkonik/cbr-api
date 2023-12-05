@@ -1,8 +1,9 @@
-import { Currency, CurrencyCharCode, Daily } from './types'
 import axios from 'axios'
-import { DAILY_CURRENCY_URL } from './constants'
-import { formatDate, formatToFloat } from './utils'
 import { XMLParser } from 'fast-xml-parser'
+
+import { DAILY_CURRENCY_URL } from './constants'
+import { Currency, CurrencyCharCode, Daily } from './types'
+import { formatDate, formatToFloat } from './utils'
 
 export * from './types'
 
