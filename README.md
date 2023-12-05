@@ -15,15 +15,33 @@ npm install cbr-api
 ### Creating an instance
 
 ```typescript
-import { CbrApi } from 'cbr-api';
+import { CbrApi, Currency } from 'cbr-api';
 
 const cbrApi = new CbrApi();
 ```
 
 ### Instance methods
 
-* `.getDailySpecificCurrencyRate(currency)`
-* `.getDailyCurrencyRates()`
+* [.getDailySpecificCurrencyRate(currency)](#getdailyspecificcurrencyratecurrency)
+* [.getDailyCurrencyRates()](#getdailycurrencyrates)
+
+#### .getDailySpecificCurrencyRate(currency)
+> Get specific currency rate for today
+
+```typescript
+cbrApi.getDailySpecificCurrencyRate(Currency.USD)
+  .then((rate) => {
+    console.log(rate);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+```
+
+#### .getDailyCurrencyRates()
+> Get all currency rates for today
+
+```typescript
 
 ## Source Data
 > https://www.cbr.ru/development/sxml/
