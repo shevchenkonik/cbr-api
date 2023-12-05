@@ -5,6 +5,9 @@ import { Daily, Currency, CurrencyCharCode } from '../types'
 import { formatDate, formatToFloat } from '../utils'
 import { DAILY_CURRENCY_URL } from '../constants'
 
+/**
+ * Get daily currency rates of all registered currencies
+ */
 export const getDailyCurrencyRate = async (): Promise<Currency[] | undefined> => {
   const today = new Date()
 
@@ -34,6 +37,9 @@ export const getDailyCurrencyRate = async (): Promise<Currency[] | undefined> =>
   }
 }
 
+/**
+ * Get daily currency rate of specific currency
+ */
 export const getDailySpecificCurrencyRate = async (
   currency: CurrencyCharCode,
 ): Promise<Currency | undefined> => {
