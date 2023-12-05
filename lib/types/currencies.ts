@@ -11,7 +11,10 @@ export interface CBRCurrency {
   ID: CurrencyID
 }
 
-export type PartialCBRCurrency = Pick<CBRCurrency, 'NumCode' | 'CharCode' | 'Nominal' | 'Name' | 'ID'>
+export type PartialCBRCurrency = Pick<
+  CBRCurrency,
+  'NumCode' | 'CharCode' | 'Nominal' | 'Name' | 'ID'
+>
 
 /**
  * Modified Interface based on CBR Interface with correct floats instead of strings

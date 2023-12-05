@@ -1,1 +1,2 @@
-export const formatToFloat = (value: string): number => parseFloat(value.replace(',', '.'))
+export const formatToFloat = (value: string): number =>
+  parseFloat(value.replace(',', '.'))
