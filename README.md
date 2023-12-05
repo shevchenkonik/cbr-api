@@ -1,4 +1,4 @@
-# CBR API (Central Bank of Russia)
+# Non-Official CBR API (Central Bank of Russia)
 
 > This is a minimalistic API wrapper written on TypeScript for getting currency rates from the Central Bank of Russia
 
@@ -41,7 +41,10 @@ cbrApi.getDailySpecificCurrencyRate(Currency.USD)
 #### .getDailyCurrencyRates()
 > Get all currency rates for today
 
-```typescript
+## Resources
 
-## Source Data
-> https://www.cbr.ru/development/sxml/
+* [https://www.cbr.ru/development/sxml](https://www.cbr.ru/development/sxml)
+
+## Legal
+This API is in no way affiliated with, authorized, maintained, sponsored or endorsed by Central Bank of Russia or any of its affiliates or subsidiaries. 
+This is an independent and unofficial API. Please use at your own risk.
