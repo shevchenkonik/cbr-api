@@ -1,9 +1,9 @@
-import { Currency } from './currencies'
+import { CBRCurrency } from './currencies'
 
 export interface Daily {
   ValCurs: DailyCurrencyCurs
 }
 
 export interface DailyCurrencyCurs {
-  Valute: Currency[]
+  Valute: CBRCurrency[]
 }

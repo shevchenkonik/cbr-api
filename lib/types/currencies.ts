@@ -1,4 +1,7 @@
-export interface Currency {
+/**
+ * Interface based on CBR XML data
+ */
+export interface CBRCurrency {
   NumCode: CurrencyNumCode
   CharCode: CurrencyCharCode
   Nominal: number
@@ -8,6 +11,19 @@ export interface Currency {
   ID: CurrencyID
 }
 
+export type PartialCBRCurrency = Pick<CBRCurrency, 'NumCode' | 'CharCode' | 'Nominal' | 'Name' | 'ID'>
+
+/**
+ * Modified Interface based on CBR Interface with correct floats instead of strings
+ */
+export type Currency = PartialCBRCurrency & {
+  Value: number
+  VunitRate: number
+}
+
+/**
+ * Currency IDs parsed from https://www.cbr.ru/scripts/XML_daily.asp
+ */
 export enum CurrencyID {
   AED = 'R01230',
   AMD = 'R01060',
@@ -54,6 +70,9 @@ export enum CurrencyID {
   ZAR = 'R01810',
 }
 
+/**
+ * Currency Char Codes parsed from https://www.cbr.ru/scripts/XML_daily.asp
+ */
 export enum CurrencyCharCode {
   AED = 'AED',
   AMD = 'AMD',
@@ -100,6 +119,9 @@ export enum CurrencyCharCode {
   ZAR = 'ZAR',
 }
 
+/**
+ * Currency Num Codes parsed from https://www.cbr.ru/scripts/XML_daily.asp
+ */
 export enum CurrencyNumCode {
   AED = 784,
   AMD = 51,
