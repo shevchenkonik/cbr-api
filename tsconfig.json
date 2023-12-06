@@ -4,11 +4,9 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "useUnknownInCatchVariables": false,
-    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
   },
-  "include": ["src", "test"]
+  "include": ["lib", "test"]
 }

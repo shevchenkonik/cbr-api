@@ -2,14 +2,18 @@
   "name": "cbr-api",
   "version": "0.0.1",
   "description": "CBR API Wrapper",
-  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "main": "./cjs/index.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
     "test": "jest --detectOpenHandles",
     "lint": "eslint . --ext .ts --fix",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "build:cjs": "rm -rf cjs && tsc -p tsconfig.build.cjs.json && echo '{\"type\":\"commonjs\"}' > cjs/package.json",
+    "build:esm": "rm -rf dist && tsc -p tsconfig.build.json",
+    "build": "npm run build:esm && npm run build:cjs"
   },
   "author": "Nik Shevchenko <shevchenko.nik@icloud.com>",
   "license": "MIT",
