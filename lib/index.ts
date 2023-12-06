@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { XMLParser } from 'fast-xml-parser'
 
-import { BASE_URL, DAILY_CURRENCY_URL, POSTFIX_URL } from './constants'
+import { BASE_URL, POSTFIX_URL } from './constants'
 import { CbrAPIConfig, Currency, CurrencyCharCode, Daily } from './types'
 import { formatDate, formatToFloat } from './utils'
 
