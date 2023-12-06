@@ -4,9 +4,7 @@
   "description": "CBR API Wrapper",
   "module": "./dist/index.js",
   "main": "./cjs/index.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "type": "module",
   "scripts": {
     "test": "jest --detectOpenHandles",
     "lint": "eslint . --ext .ts --fix",
