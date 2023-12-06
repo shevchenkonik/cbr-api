@@ -58,7 +58,7 @@ export default class CbrAPI {
   public async getDailySpecificCurrencyRate(
     currency: CurrencyCharCode,
     date?: Date,
-  ): Promise<Currency | undefined> {
+  ): Promise<Currency> {
     try {
       const data = await this.getDailyCurrenciesRate(date)
 
