@@ -13,7 +13,7 @@ npm install cbr-api
 ### Creating an instance
 
 ```typescript
-import { CbrApi, Currency } from 'cbr-api';
+import { CbrApi } from 'cbr-api';
 
 const cbrApi = new CbrApi();
 ```
