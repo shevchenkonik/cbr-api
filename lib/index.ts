@@ -21,12 +21,12 @@ export default class CbrAPI {
    */
   public async getDailyCurrenciesRate(
     date?: Date,
-  ): Promise<Currency[] | undefined> {
+  ): Promise<Currency[]> {
     const dateData = date || new Date()
 
     try {
       const response = await axios.get(
-        `${this.config.url}/${DAILY_CURRENCY_URL}?date_req=${formatDate(
+        `${this.config.url}?date_req=${formatDate(
           dateData,
         )}`,
       )
@@ -48,9 +48,7 @@ export default class CbrAPI {
         }
       })
     } catch (error) {
-      console.error(error)
-
-      return undefined
+      throw new Error('CBR API: while getting daily currencies rate')
     }
   }
 
@@ -66,9 +64,7 @@ export default class CbrAPI {
 
       return data?.filter(item => item.CharCode === currency)[0]
     } catch (error) {
-      console.error(error)
-
-      return undefined
+      throw new Error('CBR API: while getting daily specific currency rate')
     }
   }
 }
