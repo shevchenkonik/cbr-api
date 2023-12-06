@@ -17,14 +17,10 @@ export class CbrAPI {
   /**
    * Get daily currency rates of all registered currencies
    */
-  public async getDailyCurrenciesRate(
-    date = new Date(),
-  ): Promise<Currency[]> {
+  public async getDailyCurrenciesRate(date = new Date()): Promise<Currency[]> {
     try {
       const response = await axios.get(
-        `${this.config.url}/XML_daily.asp?date_req=${formatDate(
-          date,
-        )}`,
+        `${this.config.url}/XML_daily.asp?date_req=${formatDate(date)}`,
       )
 
       const parser = new XMLParser({
@@ -53,7 +49,7 @@ export class CbrAPI {
    */
   public async getDailySpecificCurrencyRate(
     currency: CurrencyCharCode,
-    date?: Date
+    date?: Date,
   ): Promise<Currency> {
     try {
       const data = await this.getDailyCurrenciesRate(date)
