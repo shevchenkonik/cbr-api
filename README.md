@@ -28,16 +28,6 @@ const cbrApi = new CbrApi();
 #### .getDailySpecificCurrencyRate(currency)
 > Get specific currency rate for particular day or today (default)
 
-```typescript
-cbrApi.getDailySpecificCurrencyRate(Currency.USD)
-  .then((rate) => {
-    console.log(rate);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-```
-
 #### .getDailyCurrencyRates()
 > Get all currency rates for particular day or today (default)
 
