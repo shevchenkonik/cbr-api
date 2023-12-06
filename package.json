@@ -2,7 +2,7 @@
   "name": "cbr-api",
   "version": "0.0.1",
   "description": "CBR API Wrapper",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "directories": {
     "lib": "lib"
   },
@@ -12,7 +12,11 @@
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   },
   "author": "Nik Shevchenko <shevchenko.nik@icloud.com>",
-  "license": "ISC",
+  "license": "MIT",
+  "keywords": [
+    "central bank",
+    "api"
+  ],
   "devDependencies": {
     "@types/jest": "^29.5.10",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
