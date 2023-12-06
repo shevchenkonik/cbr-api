@@ -2,6 +2,8 @@
 
 > This is a minimalistic API wrapper written on TypeScript for getting currency rates from the Central Bank of Russia
 
+<img src="images/logo.png" height="200" width="200">
+
 ## Installation
 
 ```shell
