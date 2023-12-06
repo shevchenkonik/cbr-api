@@ -20,11 +20,11 @@ const cbrApi = new CbrApi();
 
 ### Instance methods
 
-* [.getDailySpecificCurrencyRate(currency)](#getdailyspecificcurrencyratecurrency)
-* [.getDailyCurrencyRates()](#getdailycurrencyrates)
+* [.getDailySpecificCurrencyRate(currency, date)](#getdailyspecificcurrencyratecurrency)
+* [.getDailyCurrencyRates(date)](#getdailycurrencyrates)
 
 #### .getDailySpecificCurrencyRate(currency)
-> Get specific currency rate for today
+> Get specific currency rate for particular day or today (default)
 
 ```typescript
 cbrApi.getDailySpecificCurrencyRate(Currency.USD)
@@ -37,7 +37,7 @@ cbrApi.getDailySpecificCurrencyRate(Currency.USD)
 ```
 
 #### .getDailyCurrencyRates()
-> Get all currency rates for today
+> Get all currency rates for particular day or today (default)
 
 ## Resources
 

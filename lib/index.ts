@@ -1,34 +1,34 @@
 import axios from 'axios'
 import { XMLParser } from 'fast-xml-parser'
 
-import { DAILY_CURRENCY_URL, BASE_URL } from './constants'
-import { Currency, CurrencyCharCode, Daily } from './types'
+import { BASE_URL, DAILY_CURRENCY_URL, POSTFIX_URL } from './constants'
+import { CbrAPIConfig, Currency, CurrencyCharCode, Daily } from './types'
 import { formatDate, formatToFloat } from './utils'
 
 export * from './types'
-
-interface CbrAPIConfig {
-  baseURL?: string
-}
 
 export default class CbrAPI {
   readonly config: CbrAPIConfig = {}
 
   constructor() {
     this.config = {
-      baseURL: BASE_URL
+      url: `${BASE_URL}/${POSTFIX_URL}`,
     }
   }
 
   /**
    * Get daily currency rates of all registered currencies
    */
-  public async getDailyCurrencyRate(): Promise<Currency[] | undefined> {
-    const today = new Date()
+  public async getDailyCurrenciesRate(
+    date?: Date,
+  ): Promise<Currency[] | undefined> {
+    const dateData = date || new Date()
 
     try {
       const response = await axios.get(
-        `${this.config.baseURL}?date_req=${formatDate(today)}`,
+        `${this.config.url}/${DAILY_CURRENCY_URL}?date_req=${formatDate(
+          dateData,
+        )}`,
       )
 
       const parser = new XMLParser({
@@ -59,9 +59,10 @@ export default class CbrAPI {
    */
   public async getDailySpecificCurrencyRate(
     currency: CurrencyCharCode,
+    date?: Date,
   ): Promise<Currency | undefined> {
     try {
-      const data = await this.getDailyCurrencyRate()
+      const data = await this.getDailyCurrenciesRate(date)
 
       return data?.filter(i => i.CharCode === currency)[0]
     } catch (error) {
