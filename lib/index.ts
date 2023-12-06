@@ -64,7 +64,7 @@ export default class CbrAPI {
     try {
       const data = await this.getDailyCurrenciesRate(date)
 
-      return data?.filter(i => i.CharCode === currency)[0]
+      return data?.filter(item => item.CharCode === currency)[0]
     } catch (error) {
       console.error(error)
 
