@@ -19,6 +19,10 @@
     "central bank",
     "api"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shevchenkonik/cbr-api"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.10",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
