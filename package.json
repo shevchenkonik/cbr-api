@@ -5,6 +5,10 @@
   "module": "./dist/index.js",
   "main": "./cjs/index.js",
   "type": "module",
+  "files": [
+    "dist",
+    "cjs"
+  ],
   "scripts": {
     "test": "jest --detectOpenHandles",
     "lint": "eslint . --ext .ts --fix",
